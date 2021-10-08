@@ -2,11 +2,17 @@
 - 직접 쓰려고만든 쿼리빌더
   
 - SELECT, FROM, WHERE, JOIN 등 Add함수로 등록 후 사용하면 됨.
-    - Add 함수 호출시 순서는 관계없음. Build 함수에서 쿼리문이 순서에 맞게 작성됨.
+    - Add 함수 호출 순서는 관계없음. Build 함수에서 쿼리문이 순서에 맞게 작성됨.
   
 - 쿼리문 작성시 필요한 옵션을 직접 구현해서 사용 WithUserId 함수 참조.
   
 - 반드시 필요한 부분을 모두 Add 후에 Apply 할 것.
+
+### Install
+```
+go get github.com/elixter/Querybuilder
+```
+
 ### AddFunctions
 - AddSelect(columns string)
     ```go
@@ -14,8 +20,7 @@
     ```
 - AddDelete()
     ```
-    builder.AddDelete().
-        AddFrom("user")
+    builder.AddDelete() // No parameter
     ```
 - AddUpdate(table string, set string, args ...interface{})
     ```go
@@ -48,12 +53,7 @@
     builder.AddLimit(0, 100)
     ```
 
-### Install
-```
-go get github.com/elixter/Querybuilder
-```
-
-### Example
+### Apply option example
 ```go
 type TestRepo struct {
     DB *sqlx.DB
