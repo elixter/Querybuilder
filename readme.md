@@ -32,7 +32,7 @@ go get github.com/elixter/Querybuilder
     ```
 - AddFrom(table string)
     ```go
-    AddFrom("user")
+    builder.AddFrom("user")
     ```
 - AddJoin(join string, args ...interface{})
     ```go
